@@ -2,7 +2,7 @@
 name = "cam-viewer"
 version = "0.0.1"
 authors = [
-  { name="Amadeus (Wasys)", email="" },
+  { name="Amadeus (Wasys)", email="tubik.corp@gmail.com" },
 ]
 description = "Python library for viewing cameras"
 readme = "README.md"
