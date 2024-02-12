@@ -4,13 +4,12 @@ import time
 import urllib.request
 import logging
 
-cams_json = None
 cam_proc = None
 
 def current_time():
     return time.strftime("%H:%M:%S", time.localtime())
 
-def play(command = "ffplay", parameters = "", cam_name = "", cam_number = 1, use_text = False, fontfile = ""):
+def playback(command = "ffplay", parameters = "", cams_json = None, cam_name = "", cam_number = 1, use_text = False, fontfile = ""):
     logging.info(f"{current_time()} | Play {command} {parameters} {cam_name} {cam_number} {use_text} {fontfile}")
     cam_url = ""
     response = f"Cam {cam_name} {cam_number} is turned on"
@@ -45,7 +44,7 @@ def play(command = "ffplay", parameters = "", cam_name = "", cam_number = 1, use
             response = f"Cam {str(cam_name)} {str(cam_number)} is disabled"
             logging.error(f"{current_time()} | {response} url: {cam_url}")
 
-    if use_text: text = f"-vf \"drawtext=fontfile={str(fontfile)}:fontsize=18:fontcolor=white:fontsize=24:box=1:boxcolor=black@0.5:boxborderw=5:x=5:y=5:text='Camera\: {str(cam_name)} {str(cam_number)}'\""
+    if use_text and fontfile != "": text = f"-vf \"drawtext=fontfile={str(fontfile)}:fontsize=18:fontcolor=white:fontsize=24:box=1:boxcolor=black@0.5:boxborderw=5:x=5:y=5:text='Camera\: {str(cam_name)} {str(cam_number)}'\""
 
     if not disabled:
         if cam_proc:

@@ -1,5 +1,5 @@
 [project]
-name = "cam-viewer"
+name = "cam_viewer"
 version = "0.0.1"
 authors = [
   { name="Amadeus (Wasys)", email="tubik.corp@gmail.com" },
