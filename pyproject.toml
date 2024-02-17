@@ -4,7 +4,7 @@ version = "0.0.2"
 authors = [
   { name="Amadeus (Wasys)", email="tubik.corp@gmail.com" },
 ]
-description = "Python library for viewing cameras"
+description = "Python library for connecting to m3u8 cameras"
 readme = "README.md"
 requires-python = ">=3.8"
 classifiers = [
