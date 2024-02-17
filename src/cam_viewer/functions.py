@@ -24,7 +24,8 @@ def cam_data(cams_json = None, cam_name = "", cam_number = 1):
             if 1 <= cam_number <= len(cams_json[cam_name]):
                 cam_url = cams_json[cam_name][cam_number - 1]
                 logging.info(f"{current_time()} | {response} url: {cam_url}")
-                if(not url_enabled(cam_url)):
+                if(not url_available(cam_url)):
+                    enabled = False
                     response = f"Cam {str(cam_name)} {str(cam_number)} is disabled"
                     logging.error(f"{current_time()} | {response} url: {cam_url}")
             else:
@@ -37,14 +38,14 @@ def cam_data(cams_json = None, cam_name = "", cam_number = 1):
             logging.error(f"{current_time()} | {response}")
     return [cam_url, enabled, response]
 
-def url_enabled(cam_url = ""):
+def url_available(cam_url = ""):
     try: 
         urllib.request.urlopen(cam_url)
         return True
     except: return False
 
-def playback(command = "ffplay", parameters = "", cams_json = None, cam_name = "", cam_number = 1, use_text = False, fontfile = ""):
-    logging.info(f"{current_time()} | Play {command} {parameters} {cam_name} {cam_number} {use_text} {fontfile}")
+def playback(command = "ffplay", parameters = "", cams_json = None, cam_name = "", cam_number = 1, use_text = False, font_file = ""):
+    logging.info(f"{current_time()} | Play {command} {parameters} {cam_name} {cam_number} {use_text} {font_file}")
     cam_url = ""
     text = ""
     global cam_proc
@@ -55,7 +56,7 @@ def playback(command = "ffplay", parameters = "", cams_json = None, cam_name = "
     response = cam[2]
 
     if enabled: 
-        if use_text and fontfile != "": text = f"-vf \"drawtext=fontfile={str(fontfile)}:fontsize=18:fontcolor=white:fontsize=24:box=1:boxcolor=black@0.5:boxborderw=5:x=5:y=5:text='Camera\: {str(cam_name)} {str(cam_number)}'\""
+        if use_text and font_file != "": text = f"-vf \"drawtext=fontfile={str(font_file)}:fontsize=18:fontcolor=white:fontsize=24:box=1:boxcolor=black@0.5:boxborderw=5:x=5:y=5:text='Camera\: {str(cam_name)} {str(cam_number)}'\""
         if cam_proc:
             try:
                 logging.info(f"{current_time()} | FFMPEG killing...")
