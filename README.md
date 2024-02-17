@@ -23,7 +23,7 @@ Input parameters:
   4) ```cam_name``` - camera name (string)
   5) ```cam_number``` - camera number (integer)
   6) ```use_text``` - show camers name and number in video output (boolean True/False)
-  7) ```font_file``` - font file path
+  7) ```font_file``` - font file path (string)
 
 ### Get camera data function:
 ```
@@ -35,7 +35,7 @@ The output shows this list: [cam_url, enabled, response]:
   3) ```responce``` - a line with the result of getting camera data (string)
 
 Input parameters:
-  1) ```cams_json``` - json file containing cameras and their settings, [example](https://github.com/Vasysik/streetcat-viewer/blob/main/cams.json)https://github.com/Vasysik/streetcat-viewer/blob/main/cams.json (json data)
+  1) ```cams_json``` - json file containing cameras and their settings, [example](https://github.com/Vasysik/streetcat-viewer/blob/main/cams.json) (json data)
   2) ```cam_name``` - camera name (string)
   3) ```cam_number``` - camera number (integer)
 
@@ -44,7 +44,7 @@ Input parameters:
 cam_viewer.url_available(cam_url)
 ```
 The output shows this: 
-  1) ```available``` - True/False
+  1) ```available``` - is the camera available (boolean True/False)
 
 Input parameters:
   1) ```cam_url``` - camera URL (string)
