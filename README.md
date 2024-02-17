@@ -27,7 +27,7 @@ Input parameters:
 
 ### Get camera data function:
 ```
-cam_data(cams_json, cam_name, cam_number)
+cam_viewer.cam_data(cams_json, cam_name, cam_number)
 ```
 The output shows this list: [cam_url, enabled, response]:
   1) ```cam_url``` - camera URL (string)
@@ -41,7 +41,7 @@ Input parameters:
 
 ### Checking camera URL for availability:
 ```
-url_available(cam_url)
+cam_viewer.url_available(cam_url)
 ```
 The output shows this: 
   1) ```available``` - True/False
@@ -51,7 +51,7 @@ Input parameters:
 
 ### Get current time:
 ```
-current_time()
+cam_viewer.current_time()
 ```
 The output shows this: 
   1) ```time_str``` - current time in ```%H:%M:%S``` format (string)
