@@ -55,3 +55,7 @@ cam_viewer.current_time()
 ```
 The output shows this: 
   1) ```time_str``` - current time in ```%H:%M:%S``` format (string)
+
+## Examples of using:
+- [streetcat-console](https://github.com/Vasysik/streetcat-console) (simple usage)
+- [streetcat-youtube](https://github.com/Vasysik/streetcat-youtube)
