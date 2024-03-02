@@ -10,7 +10,7 @@ import cam_viewer
 ```
 ### Camera playback function:
 ```
-cam_viewer.playback(command, parameters, cams_json, cam_name, cam_number, use_text, fontfile)
+cam_viewer.playback(command, parameters, cams_json, cam_group, cam_id, use_title, fontfile, custom_title)
 ```
 The output shows this list: [cam_proc, response]:
   1) ```cam_proc``` - the [subprocess.Popen()](https://docs.python.org/3/library/subprocess.html#subprocess.Popen) class (Popen)
@@ -20,14 +20,15 @@ Input parameters:
   1) ```command``` - main FFMPEG command [```ffmpeg```, ```ffplay```, ```ffprobe```] (string)
   2) ```parameters``` - FFMPEG flags (string)
   3) ```cams_json``` - json file containing cameras and their settings, [example](https://github.com/Vasysik/streetcat-viewer/blob/main/cams.json) (json data)
-  4) ```cam_name``` - camera name (string)
-  5) ```cam_number``` - camera number (integer)
-  6) ```use_text``` - show camers name and number in video output (boolean True/False)
+  4) ```cam_group``` - camera group (string)
+  5) ```cam_id``` - camera ID (integer)
+  6) ```use_title``` - show camera group and camera ID in video output (boolean True/False)
   7) ```font_file``` - font file path (string)
+  8) ```custom_title``` - your custom title (string)
 
 ### Get camera data function:
 ```
-cam_viewer.cam_data(cams_json, cam_name, cam_number)
+cam_viewer.cam_data(cams_json, cam_group, cam_id)
 ```
 The output shows this list: [cam_url, enabled, response]:
   1) ```cam_url``` - camera URL (string)
@@ -36,8 +37,8 @@ The output shows this list: [cam_url, enabled, response]:
 
 Input parameters:
   1) ```cams_json``` - json file containing cameras and their settings, [example](https://github.com/Vasysik/streetcat-viewer/blob/main/cams.json) (json data)
-  2) ```cam_name``` - camera name (string)
-  3) ```cam_number``` - camera number (integer)
+  2) ```cam_group``` - camera group (string)
+  3) ```cam_id``` - camera ID (integer)
 
 ### Checking camera URL for availability:
 ```
